@@ -23,13 +23,48 @@ function App() {
   useEffect(() => {
     authenticationObserver((user) => {
       if (user) {
-        console.log(user);
-        // getUserByFirebaseId()
+        getUserByFirebaseId(user.uid)
+          .then((resp) => {
+            dispatch(
+              setDataIsAuthorized({
+                firstName: resp.data.currentUser.firstName,
+                lastName: resp.data.currentUser.lastName,
+                userName: resp.data.currentUser.userName,
+                email: resp.data.currentUser.email,
+                country: resp.data.currentUser.country,
+                birthday: resp.data.currentUser.birthday,
+                profileImage: resp.data.currentUser.profileImage,
+              })
+            );
+            setIsReadyToInit(true);
+          })
+          .catch((error) => {
+            alert(error);
+          });
       } else {
         dispatch(resetDataIsAuthorized());
       }
     });
+    // eslint-disable-next-line
   }, []);
+
+  if (!isReadyToInit) {
+    // Loading Spinner
+    return (
+      <main className="container-centered">
+        <div className="lds-roller container-centered">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <>

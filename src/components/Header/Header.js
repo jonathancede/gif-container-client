@@ -3,7 +3,10 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // Icons
-import { Search } from "@mui/icons-material";
+import { Search, Logout } from "@mui/icons-material";
+
+// Functions imported
+import { logoutFirebase } from "../../services/firebase";
 
 // CSS
 import "./style.css";
@@ -22,6 +25,20 @@ function Header() {
   function linkToSearch(e) {
     e.preventDefault();
     history.push(`/search?s=${searchValue}`);
+  }
+
+  function handleLogout() {
+    logoutFirebase()
+      .then(() => {
+        history.push("/");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
+
+  function handleLogin() {
+    history.push("/login");
   }
 
   return (
@@ -48,10 +65,22 @@ function Header() {
       </form>
       <div className="login-information-header">
         {isAuthorized.isAuthorized ? (
-          <></>
+          <>
+            <button className="form-button" type="button">
+              Upload
+            </button>
+            <div>{isAuthorized.userData.userName}</div>
+            <Logout className="pointer" onClick={handleLogout} />
+          </>
         ) : (
           <>
-            <div>Log In</div>
+            <button
+              className="form-button color-yellowgreen"
+              type="button"
+              onClick={handleLogin}
+            >
+              Log In
+            </button>
           </>
         )}
       </div>

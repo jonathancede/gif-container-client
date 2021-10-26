@@ -11,8 +11,8 @@ export function registerNewUser(userData) {
   });
 }
 
-export function getUserByFirebaseId(firebaseId) {
-  const userToken = getCurrentUserToken();
+export async function getUserByFirebaseId(firebaseId) {
+  const userToken = await getCurrentUserToken();
   return axios({
     method: "GET",
     url: `${process.env.REACT_APP_SERVER_URL}users/get-user-by-firebase-id/${firebaseId}`,

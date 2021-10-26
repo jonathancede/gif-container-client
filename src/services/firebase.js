@@ -2,6 +2,7 @@ import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 // Config file
@@ -25,8 +26,13 @@ export function registerNewUserFirebase(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
 }
 
-export function getCurrentUserToken() {
+export async function getCurrentUserToken() {
   const auth = getAuth();
-  const token = auth.currentUser.getIdToken();
+  const token = await auth.currentUser.getIdToken();
   return token;
+}
+
+export function logoutFirebase() {
+  const auth = getAuth();
+  return signOut(auth);
 }
