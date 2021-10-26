@@ -370,6 +370,10 @@ function Register() {
     }
   }
 
+  function linkToLogin() {
+    history.push("/login");
+  }
+
   return (
     <main>
       <div className="center">
@@ -456,6 +460,12 @@ function Register() {
             <button className="form-button color-yellowgreen" type="submit">
               Confirm
             </button>
+          </div>
+          <div className="join-now-wrapper">
+            <div>Already have an account?</div>
+            <div className="log-in-register-text" onClick={linkToLogin}>
+              Log In!
+            </div>
           </div>
         </form>
       </div>

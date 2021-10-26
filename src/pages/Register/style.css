@@ -40,3 +40,10 @@
 .color-yellowgreen {
   background-color: yellowgreen;
 }
+
+.log-in-register-text {
+  margin-left: 15px;
+  font-weight: bold;
+  color: yellowgreen;
+  cursor: pointer;
+}

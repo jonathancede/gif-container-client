@@ -43,6 +43,7 @@ function App() {
           });
       } else {
         dispatch(resetDataIsAuthorized());
+        setIsReadyToInit(true);
       }
     });
     // eslint-disable-next-line

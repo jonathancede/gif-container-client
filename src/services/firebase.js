@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 // Config file
@@ -35,4 +36,9 @@ export async function getCurrentUserToken() {
 export function logoutFirebase() {
   const auth = getAuth();
   return signOut(auth);
+}
+
+export function loginFirebase(email, password) {
+  const auth = getAuth();
+  return signInWithEmailAndPassword(auth, email, password);
 }

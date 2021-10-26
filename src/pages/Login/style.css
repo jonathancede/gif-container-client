@@ -1,0 +1,21 @@
+.title-form-login {
+  font-size: 50px;
+  text-shadow: 2px 0 0 yellowgreen, -2px 0 0 yellowgreen, 0 2px 0 yellowgreen,
+    0 -2px 0 yellowgreen, 1px 1px yellowgreen, -1px -1px 0 yellowgreen,
+    1px -1px 0 yellowgreen, -1px 1px 0 yellowgreen;
+  letter-spacing: 3px;
+}
+
+.join-now-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  font-size: 18px;
+}
+
+.join-now-text {
+  margin-left: 15px;
+  font-weight: bold;
+  color: violet;
+  cursor: pointer;
+}
