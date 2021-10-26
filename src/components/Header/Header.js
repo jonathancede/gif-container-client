@@ -30,7 +30,7 @@ function Header() {
   function handleLogout() {
     logoutFirebase()
       .then(() => {
-        history.push("/");
+        history.push("/login");
       })
       .catch((error) => {
         alert(error);

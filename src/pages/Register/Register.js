@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 // HoC
 import withHeader from "../../hoc/withHeader";
+import withoutAuth from "../../hoc/withoutAuth";
 
 // Components
 import Input from "../../components/Input";
@@ -473,4 +474,4 @@ function Register() {
   );
 }
 
-export default withHeader(Register);
+export default withoutAuth(withHeader(Register));
