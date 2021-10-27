@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 // HoC
 import withHeader from "../../hoc/withHeader";
 
+// Components
+import GifBlock from "../../components/GifBlock";
+
 // Functions imported
 import {
   getGifsByOwner,
@@ -99,15 +102,12 @@ function Search() {
           <div></div>
         </div>
       ) : (
-        [
-          results.length === 0 ? (
-            <div>No GIFs found for {query}</div>
-          ) : (
-            results.map((result, index) => (
-              <div key={index}>{result.title}</div>
-            ))
-          ),
-        ]
+        <div className="gifs-container" key="-1">
+          {results.length === 0 && "No GIFs found for " + query}
+          {results.map((result, index) => (
+            <GifBlock id={result._id} key={index} />
+          ))}
+        </div>
       )}
     </main>
   );

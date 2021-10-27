@@ -1,0 +1,36 @@
+.gif-block {
+  margin-bottom: 20px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.gif-loading {
+  width: 200px;
+  background-color: grey;
+}
+
+.hide {
+  display: none;
+}
+
+.gif-image {
+  height: 200px;
+}
+
+.gif-image:hover + .hide {
+  display: block;
+}
+
+.hide:hover {
+  display: block;
+}
+
+.gif-username {
+  position: relative;
+  width: fit-content;
+  left: 5px;
+  bottom: 30px;
+  text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
+    1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+  letter-spacing: 1px;
+}

@@ -15,6 +15,13 @@ export async function uploadNewGif(gifData) {
   });
 }
 
+export function getGifById(id) {
+  return axios({
+    method: "GET",
+    url: `${process.env.REACT_APP_SERVER_URL}gifs/get-by-id/${id}`,
+  });
+}
+
 export function getGifsByTitle(query) {
   return axios({
     method: "GET",
