@@ -16,6 +16,9 @@ import "./index.css";
 // Initialize Firebase
 initializeApp(firebaseConfig);
 
+// Console Welcome
+console.log("Welcome to GIFHome!");
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider>
