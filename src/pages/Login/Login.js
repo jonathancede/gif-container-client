@@ -66,6 +66,8 @@ function Login() {
   const [email, setEmail] = useState(initialFormStateRegister);
   const [password, setPassword] = useState(initialFormStateRegister);
 
+  const [isUploading, setIsUploading] = useState(false);
+
   const history = useHistory();
 
   function handleEmailChange(e) {
@@ -141,11 +143,14 @@ function Login() {
     });
 
     if (!emailError.isError & !passwordError.isError) {
+      setIsUploading(true);
       loginFirebase(email.value, password.value)
         .then(() => {
+          setIsUploading(false);
           history.push("/");
         })
         .catch((error) => {
+          setIsUploading(false);
           alert(error);
         });
     }
@@ -200,6 +205,20 @@ function Login() {
               Join Now!
             </div>
           </div>
+          {isUploading && (
+            <div className="spinner-upload">
+              <div className="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </main>

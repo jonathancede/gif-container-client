@@ -131,6 +131,8 @@ function Register() {
     initialFormStateRegister
   );
 
+  const [isUploading, setIsUploading] = useState(false);
+
   const history = useHistory();
 
   function handleFirstNameChange(e) {
@@ -348,6 +350,7 @@ function Register() {
       !passwordError.isError &
       !confirmPasswordError.isError
     ) {
+      setIsUploading(true);
       registerNewUserFirebase(email.value, password.value)
         .then((user) => {
           const data = {
@@ -359,13 +362,16 @@ function Register() {
           };
           registerNewUser(data)
             .then(() => {
+              setIsUploading(false);
               history.push("/");
             })
             .catch((error) => {
+              setIsUploading(false);
               alert(error);
             });
         })
         .catch((error) => {
+          setIsUploading(false);
           alert(error);
         });
     }
@@ -468,6 +474,20 @@ function Register() {
               Log In!
             </div>
           </div>
+          {isUploading && (
+            <div className="spinner-upload">
+              <div className="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </main>

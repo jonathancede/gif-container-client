@@ -169,6 +169,7 @@ function Upload() {
               history.push("/");
             })
             .catch((error) => {
+              setIsUploading(false);
               alert(error);
             });
         })
