@@ -4,3 +4,8 @@
     1px 1px orange, -1px -1px 0 orange, 1px -1px 0 orange, -1px 1px 0 orange;
   letter-spacing: 3px;
 }
+
+.spinner-upload {
+  display: flex;
+  justify-content: end;
+}

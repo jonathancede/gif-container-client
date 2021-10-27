@@ -72,6 +72,7 @@ function Upload() {
   });
   const [tempTag, setTempTag] = useState("");
   const [tags, setTags] = useState([]);
+  const [isUploading, setIsUploading] = useState(false);
 
   const { userData } = useSelector((state) => state.isAuthorized);
 
@@ -153,6 +154,7 @@ function Upload() {
     });
 
     if (!titleError.isError & !fileError.isError) {
+      setIsUploading(true);
       uploadGifCloudinary(file.file)
         .then((resp) => {
           const data = {
@@ -163,6 +165,7 @@ function Upload() {
           };
           uploadNewGif(data)
             .then(() => {
+              setIsUploading(false);
               history.push("/");
             })
             .catch((error) => {
@@ -170,6 +173,7 @@ function Upload() {
             });
         })
         .catch((error) => {
+          setIsUploading(false);
           alert(error);
         });
     }
@@ -220,6 +224,20 @@ function Upload() {
               Confirm
             </button>
           </div>
+          {isUploading && (
+            <div className="spinner-upload">
+              <div className="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </main>

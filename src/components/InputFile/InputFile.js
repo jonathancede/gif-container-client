@@ -42,7 +42,7 @@ function InputFile({
         <input
           className="upload-input"
           type="file"
-          accept=".gif,.m4v,.mp4,.mov"
+          accept=".gif"
           name={id}
           id={id}
           value={value}
