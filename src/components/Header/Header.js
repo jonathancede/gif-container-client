@@ -38,6 +38,18 @@ function Header() {
     history.push("/random");
   }
 
+  function linkToCategory1() {
+    history.push("/search?query=Dancing");
+  }
+
+  function linkToCategory2() {
+    history.push("/search?query=Minion");
+  }
+
+  function linkToCategory3() {
+    history.push("/search?query=Hello");
+  }
+
   function handleLogout() {
     logoutFirebase()
       .then(() => {
@@ -58,10 +70,16 @@ function Header() {
         <img className="image-wrapper" src="../logo.png" alt="logo" />
         <div className="title-logo">GIFHome</div>
       </div>
-      <div className="category-element">Category 1</div>
-      <div className="category-element">Category 2</div>
-      <div className="category-element">Category 3</div>
-      <div className="category-element" onClick={linkToRandom}>
+      <div className="category-element" onClick={linkToCategory1}>
+        Dancing
+      </div>
+      <div className="category-element" onClick={linkToCategory2}>
+        Minion
+      </div>
+      <div className="category-element" onClick={linkToCategory3}>
+        Hello
+      </div>
+      <div className="category-element text-orange" onClick={linkToRandom}>
         Random GIF
       </div>
       <form className="search-wrapper" onSubmit={linkToSearch}>

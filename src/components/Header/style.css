@@ -67,3 +67,7 @@
 .pointer {
   cursor: pointer;
 }
+
+.text-orange {
+  color: orange;
+}
