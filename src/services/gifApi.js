@@ -3,6 +3,13 @@ import axios from "axios";
 // Functions
 import { getCurrentUserToken } from "./firebase";
 
+export function getAllGifs() {
+  return axios({
+    method: "GET",
+    url: `${process.env.REACT_APP_SERVER_URL}gifs/get-all`,
+  });
+}
+
 export async function uploadNewGif(gifData) {
   const userToken = await getCurrentUserToken();
   return axios({
