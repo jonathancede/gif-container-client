@@ -24,8 +24,10 @@ function Header() {
 
   function linkToSearch(e) {
     e.preventDefault();
-    setSearchValue("");
-    history.push(`/search?query=${searchValue}`);
+    if (searchValue !== "") {
+      setSearchValue("");
+      history.push(`/search?query=${searchValue}`);
+    }
   }
 
   function linkToUpload() {
