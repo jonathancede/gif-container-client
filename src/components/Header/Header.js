@@ -49,7 +49,7 @@ function Header() {
   return (
     <header className="header-wrapper">
       <div className="logo-wrapper" onClick={linkToHome}>
-        <img className="image-wrapper" src="./logo.png" alt="logo" />
+        <img className="image-wrapper" src="../logo.png" alt="logo" />
         <div className="title-logo">GIFHome</div>
       </div>
       <div className="category-element">Category 1</div>

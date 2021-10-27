@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Upload from "./pages/Upload";
 import Search from "./pages/Search/Search";
+import GifPage from "./pages/GifPage/GifPage";
 
 // Functions
 import { getUserByFirebaseId } from "./services/userApi";
@@ -73,6 +74,7 @@ function App() {
   return (
     <>
       <Switch>
+        <Route path="/gifs/:id" component={GifPage} />
         <Route path="/search" component={Search} />
         <Route path="/upload" component={Upload} />
         <Route path="/register" component={Register} />
