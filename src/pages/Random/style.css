@@ -1,0 +1,30 @@
+.renew-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: orange;
+  color: black;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+}
+
+.renew-wrapper:hover {
+  box-shadow: 0px 0px 20px orange;
+}
+
+.renew-icon {
+  margin-right: 10px;
+}
+
+.spinner-random {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  margin-bottom: 30px;
+}
+
+.giphy-text {
+  font-weight: bold;
+}

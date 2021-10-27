@@ -34,6 +34,10 @@ function Header() {
     history.push("/upload");
   }
 
+  function linkToRandom() {
+    history.push("/random");
+  }
+
   function handleLogout() {
     logoutFirebase()
       .then(() => {
@@ -57,7 +61,9 @@ function Header() {
       <div className="category-element">Category 1</div>
       <div className="category-element">Category 2</div>
       <div className="category-element">Category 3</div>
-      <div className="category-element">Category 4</div>
+      <div className="category-element" onClick={linkToRandom}>
+        Random GIF
+      </div>
       <form className="search-wrapper" onSubmit={linkToSearch}>
         <Search />
         <input
