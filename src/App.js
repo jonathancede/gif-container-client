@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Upload from "./pages/Upload";
+import Search from "./pages/Search/Search";
 
 // Functions
 import { getUserByFirebaseId } from "./services/userApi";
@@ -72,6 +73,7 @@ function App() {
   return (
     <>
       <Switch>
+        <Route path="/search" component={Search} />
         <Route path="/upload" component={Upload} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />

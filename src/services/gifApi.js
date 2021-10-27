@@ -14,3 +14,24 @@ export async function uploadNewGif(gifData) {
     },
   });
 }
+
+export function getGifsByTitle(query) {
+  return axios({
+    method: "GET",
+    url: `${process.env.REACT_APP_SERVER_URL}gifs/get-gifs-by-title/${query}`,
+  });
+}
+
+export function getGifsByOwner(query) {
+  return axios({
+    method: "GET",
+    url: `${process.env.REACT_APP_SERVER_URL}gifs/get-gifs-by-username/${query}`,
+  });
+}
+
+export function getGifsByTag(query) {
+  return axios({
+    method: "GET",
+    url: `${process.env.REACT_APP_SERVER_URL}gifs/get-gifs-by-tag/${query}`,
+  });
+}

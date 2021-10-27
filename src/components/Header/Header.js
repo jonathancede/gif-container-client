@@ -24,7 +24,8 @@ function Header() {
 
   function linkToSearch(e) {
     e.preventDefault();
-    history.push(`/search?s=${searchValue}`);
+    setSearchValue("");
+    history.push(`/search?query=${searchValue}`);
   }
 
   function linkToUpload() {
