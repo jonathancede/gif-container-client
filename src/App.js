@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Upload from "./pages/Upload";
 
 // Functions
 import { getUserByFirebaseId } from "./services/userApi";
@@ -27,6 +28,7 @@ function App() {
           .then((resp) => {
             dispatch(
               setDataIsAuthorized({
+                _id: resp.data.currentUser._id,
                 firstName: resp.data.currentUser.firstName,
                 lastName: resp.data.currentUser.lastName,
                 userName: resp.data.currentUser.userName,
@@ -70,6 +72,7 @@ function App() {
   return (
     <>
       <Switch>
+        <Route path="/upload" component={Upload} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />

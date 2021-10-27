@@ -27,6 +27,10 @@ function Header() {
     history.push(`/search?s=${searchValue}`);
   }
 
+  function linkToUpload() {
+    history.push("/upload");
+  }
+
   function handleLogout() {
     logoutFirebase()
       .then(() => {
@@ -66,7 +70,11 @@ function Header() {
       <div className="login-information-header">
         {isAuthorized.isAuthorized ? (
           <>
-            <button className="form-button" type="button">
+            <button
+              className="form-button"
+              type="button"
+              onClick={linkToUpload}
+            >
               Upload
             </button>
             <div>{isAuthorized.userData.userName}</div>
